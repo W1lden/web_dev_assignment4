@@ -7,7 +7,7 @@ class CommentSerializer(serializers.ModelSerializer):
         fields = ['id', 'post', 'author', 'content', 'timestamp']
 
 class PostSerializer(serializers.ModelSerializer):
-    comments = CommentSerializer(many=True, read_only=True)  # Вложенный сериализатор
+    author = serializers.ReadOnlyField(source='author.username')  # Для отображения имени автора
 
     class Meta:
         model = Post
