@@ -6,7 +6,8 @@ from .models import Post, Comment
 from .serializers import PostSerializer, CommentSerializer
 
 class PostViewSet(ModelViewSet):
-    queryset = Post.objects.all()
+    # queryset = Post.objects.all()
+    queryset = Post.objects.prefetch_related('comments').all()  # Оптимизация запросов
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticated]  # Только аутентифицированные пользователи
 

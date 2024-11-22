@@ -8,7 +8,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
     author = serializers.ReadOnlyField(source='author.username')  # Для отображения имени автора
-
+    comments = CommentSerializer(many=True, read_only=True)  # Вложенный сериализатор
     class Meta:
         model = Post
         fields = ['id', 'title', 'content', 'author', 'timestamp', 'comments']
