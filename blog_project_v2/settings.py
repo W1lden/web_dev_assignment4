@@ -14,7 +14,7 @@ from pathlib import Path
 from datetime import timedelta
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),  # Увеличьте время, например, до 30 минут
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=360),  # Увеличьте время, например, до 30 минут
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),    # Увеличьте срок действия refresh токена
 }
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -149,6 +149,8 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
+    'DEFAULT_VERSION': 'v1',
 }
 
 SWAGGER_SETTINGS = {

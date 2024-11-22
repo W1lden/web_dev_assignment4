@@ -19,3 +19,11 @@ class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = [IsAuthorOrReadOnly]
+
+class PostViewSetV2(viewsets.ModelViewSet):
+    queryset = Post.objects.prefetch_related('comments').all()
+    serializer_class = PostSerializer  # Вы можете использовать другой сериализатор для v2
+    permission_classes = [IsAuthenticated]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)

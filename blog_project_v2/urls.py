@@ -30,7 +30,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     
     # Маршруты API
-    path('api/', include('blog.urls')),
+    # path('api/', include('blog.urls')),
+
+    # Версии API
+    path('api/v1/', include('blog.urls')),  # Версия 1
+    path('api/v2/', include('blog.urls')),  # Версия 2
 
     # JWT-токены
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
