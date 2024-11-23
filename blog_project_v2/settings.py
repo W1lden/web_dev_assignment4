@@ -84,12 +84,24 @@ WSGI_APPLICATION = "blog_project_v2.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blogdb',
+        'USER': 'bloguser',
+        'PASSWORD': 'blogpassword',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
+
 
 
 # Password validation
@@ -172,3 +184,5 @@ SWAGGER_SETTINGS = {
     'USE_SESSION_AUTH': False,  # Отключаем авторизацию через сессии
 }
 
+STATIC_URL = '/static/'
+STATIC_ROOT = '/app/static/'
