@@ -20,7 +20,7 @@ class APITestCaseWithAuth(APITestCase):
         data = {
             'title': 'New Post',
             'content': 'This is a new post',
-            'author': self.user.username,  # Передаем имя пользователя
+            'author': self.user.username,
         }
         response = self.client.post('/api/posts/', data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
@@ -38,7 +38,7 @@ class APITestCaseWithAuth(APITestCase):
         data = {
             'title': 'Updated Title',
             'content': 'Updated Content',
-            'author': self.user.username,  # Указываем имя автора
+            'author': self.user.username,
         }
         response = self.client.put(f'/api/posts/{self.post.id}/', data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)

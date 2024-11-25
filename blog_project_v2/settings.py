@@ -44,10 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "blog",
     "rest_framework",
-    'drf_yasg',
-    # 'rest_framework.authtoken',
-    # 'rest_framework.authentication.TokenAuthentication',
-
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [
@@ -80,16 +77,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "blog_project_v2.wsgi.application"
 
-
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
 
 DATABASES = {
     'default': {
@@ -145,15 +132,6 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# REST_FRAMEWORK = {
-#     'DEFAULT_AUTHENTICATION_CLASSES': [
-#         'rest_framework_simplejwt.authentication.JWTAuthentication',
-#     ],
-#     'DEFAULT_PERMISSION_CLASSES': [
-#         'rest_framework.permissions.IsAuthenticated',
-#     ],
-# }
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -168,8 +146,8 @@ REST_FRAMEWORK = {
         'rest_framework.throttling.UserRateThrottle',
     ],
     'DEFAULT_THROTTLE_RATES': {
-        'anon': '5/minute',  # Ограничение для анонимных пользователей
-        'user': '10/minute',  # Ограничение для аутентифицированных пользователей
+        'anon': '5/minute',
+        'user': '10/minute',
     },
 }
 
@@ -181,7 +159,7 @@ SWAGGER_SETTINGS = {
             'in': 'header',
         }
     },
-    'USE_SESSION_AUTH': False,  # Отключаем авторизацию через сессии
+    'USE_SESSION_AUTH': False,
 }
 
 STATIC_URL = '/static/'
